@@ -66,6 +66,8 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        env:
+          BASE_PATH: ${{ env.BASE_PATH }}
         run: yarn build
       - name: List Dir
         run: |
